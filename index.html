@@ -26,15 +26,15 @@ html {
 body {
    font-family: 'Open Sans', sans-serif;
 font-weight: 500;
-    background: #080d19;
-    color: #ffffff;
+    background: #FFF0F5;
+    color: #4A2635;
     line-height: 1.6;
 }
 
 :root {
-    --orange: #ff9d32;
-    --blue: #14243d;
-    --light: #b8c5d9;
+    --orange: #C2185B;
+    --blue: #F7B8C8;
+    --light: #4A2635;
 }
 
 .container {
@@ -46,8 +46,8 @@ font-weight: 500;
 /* NAVBAR */
 
 nav {
-    background: #101a2c;
-    border-bottom: 1px solid #263b58;
+    background: #C2185B;
+   border-bottom: 1px solid #E8A1B5;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -80,13 +80,13 @@ nav a:hover {
 /* HERO */
 
 .hero {
-    min-height: 520px;
+    min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background:
-    radial-gradient(circle at top, #203b61, #080d19 70%);
+    radial-gradient(circle at top, #f7b8c8, #fff0f5 70%);
     padding: 70px 20px;
 }
 
@@ -363,6 +363,47 @@ footer a {
         padding: 22px;
     }
 }
+/* FULL SCREEN ANIMATED PAGES */
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+nav,
+.hero,
+section {
+    scroll-snap-align: start;
+}
+
+.hero {
+    min-height: calc(100vh - 70px);
+    animation: pageReveal 1s ease;
+}
+
+section {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-stop: always;
+    animation: pageReveal 1s ease;
+}
+
+@keyframes pageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}    
 </style>
 </head>
 
